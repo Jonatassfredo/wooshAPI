@@ -14,6 +14,15 @@ const enderecoEntregaRouter = require("../routes/endereco-entrega-router");
 //Criando/Invocando a Api/Server Web do Express
 const app = express();
 
+app.use(function(req, res, next) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.setHeader("Access-Control-Allow-Headers", "content-type");
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    next();
+});
+
 //Configuração de parse do JSON
 app.use(
     bodyParser.json({
