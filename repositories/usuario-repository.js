@@ -6,7 +6,7 @@ class usuarioRepository {
 
     constructor() {
         this._base = new base('Usuario');
-        this._projection = 'nome email cpf _id';
+        this._projection = 'nome email cpf _id telefone';
     }
 
     async IsEmailExite(Email) {
