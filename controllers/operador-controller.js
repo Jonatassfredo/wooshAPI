@@ -49,7 +49,7 @@ operadorController.prototype.delete = async (req, res) => {
 
 operadorController.prototype.autenticar = async (req, res) => {
     let _validationContract = new validation();
-    _validationContract.isRequired(req.body.nome, 'Informe um e-mail');
+    _validationContract.isRequired(req.body.nome, 'Informe um nome');
     // _validationContract.isEmail(req.body.email, 'O E-mail informado é inválido');
     _validationContract.isRequired(req.body.senha, 'Informe uma senha');
 
