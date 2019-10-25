@@ -14,7 +14,7 @@ function operadorController() {
 
 }
 
-operadorController.prototype.post = async(req, res) => {
+operadorController.prototype.post = async (req, res) => {
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.nome, 'Informe um nome');
     _validationContract.isRequired(req.body.senha, 'A senha informada é obrigatória');
@@ -28,28 +28,31 @@ operadorController.prototype.post = async(req, res) => {
     ctrlBase.post(_repo, _validationContract, req, res);
 };
 
-operadorController.prototype.put = async(req, res) => {
+operadorController.prototype.put = async (req, res) => {
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.nome, 'Informe seu nome');
     _validationContract.isRequired(req.params.id, 'Informe oId do operador que será editado');
     ctrlBase.put(_repo, _validationContract, req, res);
 };
 
-operadorController.prototype.get = async(req, res) => {
+operadorController.prototype.get = async (req, res) => {
     ctrlBase.get(_repo, req, res);
 };
 
-operadorController.prototype.getById = async(req, res) => {
+operadorController.prototype.getById = async (req, res) => {
     ctrlBase.getById(_repo, req, res);
 };
 
-operadorController.prototype.delete = async(req, res) => {
+operadorController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
 };
 
-operadorController.prototype.autenticar = async(req, res) => {
+operadorController.prototype.autenticar = async (req, res) => {
     let _validationContract = new validation();
-    _validationContract.isRequired(req.body.senha, 'Informe sua senha');
+    _validationContract.isRequired(req.body.nome, 'Informe um e-mail');
+    // _validationContract.isEmail(req.body.email, 'O E-mail informado é inválido');
+    _validationContract.isRequired(req.body.senha, 'Informe uma senha');
+
     if (!_validationContract.isValid()) {
         res.status(400).send({
             message: 'Não foi possível efetuar o login',
@@ -60,14 +63,14 @@ operadorController.prototype.autenticar = async(req, res) => {
     let operadorEncontrado = await _repo.authenticate(req.body.nome, req.body.senha);
     if (operadorEncontrado) {
         res.status(200).send({
-            operador: operadorEncontrado,
+            usuario: operadorEncontrado,
             token: jwt.sign({
                 user: operadorEncontrado
             }, variables.Security.secretyKey)
         })
     } else {
         res.status(404).send({
-            message: 'Operador e senha informados são inválidos!'
+            message: 'Usuário e senha informados são inválidos!'
         });
     }
 }
