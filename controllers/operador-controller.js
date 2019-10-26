@@ -63,9 +63,9 @@ operadorController.prototype.autenticar = async (req, res) => {
     let operadorEncontrado = await _repo.authenticate(req.body.nome, req.body.senha);
     if (operadorEncontrado) {
         res.status(200).send({
-            usuario: operadorEncontrado,
+            operador: operadorEncontrado,
             token: jwt.sign({
-                user: operadorEncontrado
+                operador: operadorEncontrado
             }, variables.Security.secretyKey)
         })
     } else {
