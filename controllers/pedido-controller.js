@@ -9,7 +9,7 @@ function pedidoController() {
 
 }
 
-pedidoController.prototype.post = async(req, res) => {
+pedidoController.prototype.post = async (req, res) => {
 
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.valorTotal, 'Você não possui itens no carrinho');
@@ -24,20 +24,27 @@ pedidoController.prototype.post = async(req, res) => {
     ctrlBase.post(_repo, _validationContract, req, res);
 };
 
-pedidoController.prototype.get = async(req, res) => {
+pedidoController.prototype.get = async (req, res) => {
     let result = await _repo.getAll(req.usuarioLogado.user._id);
     res.status(200).send(result);
 };
 
-pedidoController.prototype.getById = async(req, res) => {
+pedidoController.prototype.getAll = async (req, res) => {
+    let result = await _repo.getAllPedidos(req, res);
+    res.status(200).send(result);
+
+    // ctrlBase.get(_repo, req, res);
+};
+
+pedidoController.prototype.getById = async (req, res) => {
     ctrlBase.getById(_repo, req, res);
 };
 
-pedidoController.prototype.delete = async(req, res) => {
+pedidoController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
 };
 
-pedidoController.prototype.put = async(req, res) => {
+pedidoController.prototype.put = async (req, res) => {
 
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.valorTotal, 'O valor Total é obrigatório');
