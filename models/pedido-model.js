@@ -12,9 +12,8 @@ const pedidoModel = new schema({
         type: schema.Types.ObjectId,
         ref: 'EnderecoEntrega'
     },
-    enderecoEntrega: {
-        type: schema.Types.ObjectId,
-        ref: 'EnderecoEntrega'
+    enderecoEntregaId: {
+        type: String
     },
     operadorId: {
         type: schema.Types.ObjectId,
@@ -63,6 +62,8 @@ const pedidoModel = new schema({
     usuarioNome: {
         type: String
     }
+
+
 });
 
 pedidoModel.pre('save', next => {
