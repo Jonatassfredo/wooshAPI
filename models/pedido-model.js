@@ -13,7 +13,7 @@ const pedidoModel = new schema({
         ref: 'EnderecoEntrega'
     },
     enderecoEntrega: {
-        ttype: schema.Types.ObjectId,
+        type: schema.Types.ObjectId,
         ref: 'EnderecoEntrega'
     },
     operadorId: {
