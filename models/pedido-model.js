@@ -39,8 +39,7 @@ const pedidoModel = new schema({
         default: 'Aguardando'
     },
     tipoPagamento: {
-        type: String,
-        required: true
+        type: String
     },
     observacoes: {
         type: String,
