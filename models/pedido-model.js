@@ -12,6 +12,9 @@ const pedidoModel = new schema({
         type: schema.Types.ObjectId,
         ref: 'EnderecoEntrega'
     },
+    enderecoEntregaId: {
+        type: String
+    },
     operadorId: {
         type: schema.Types.ObjectId,
         ref: 'Operador'
@@ -38,7 +41,7 @@ const pedidoModel = new schema({
         required: true,
         default: 'Aguardando'
     },
-    tipoPagamento: {
+    formaPagamento: {
         type: String
     },
     observacoes: {
