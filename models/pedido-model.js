@@ -40,8 +40,7 @@ const pedidoModel = new schema({
     },
     tipoPagamento: {
         type: String,
-        required: true,
-        default: 'Dinheiro'
+        required: true
     },
     observacoes: {
         type: String,
@@ -57,6 +56,9 @@ const pedidoModel = new schema({
         type: String,
         required: true,
         default: 'Não'
+    },
+    usuarioNome: {
+        type: String
     }
 
 

@@ -21,6 +21,10 @@ class pedidoRepository {
         });
     }
 
+    async getAllPedidos() {
+        return await this._base.getAll();
+    }
+
     async getById(id) {
         return await this._base.getById(id);
     }
