@@ -12,7 +12,7 @@ const pedidoModel = new schema({
         type: schema.Types.ObjectId,
         ref: 'EnderecoEntrega'
     },
-    enderecoEntregaId: {
+    enderecoEntrega: {
         type: String
     },
     operadorId: {
@@ -43,11 +43,6 @@ const pedidoModel = new schema({
     },
     formaPagamento: {
         type: String
-    },
-    observacoes: {
-        type: String,
-        required: false,
-        default: ' '
     },
     tempoEntrega: {
         type: Number,
