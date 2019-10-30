@@ -19,7 +19,7 @@ pedidoController.prototype.post = async (req, res) => {
     //pega o id do usuário e joga no pedido
     req.body.usuarioId = req.usuarioLogado.user._id;
     //pega o id do operador e joga no pedido
-    req.body.operadorId = req.operadorLogado.user._id;
+    // req.body.operadorId = req.operadorLogado.user._id;
 
     ctrlBase.post(_repo, _validationContract, req, res);
 };
