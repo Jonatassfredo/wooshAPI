@@ -38,7 +38,8 @@ class usuarioRepository {
             email: data.email,
             cpf: data.cpf,
             foto: data.foto,
-            telefone: data.telefone
+            telefone: data.telefone,
+            ativo: data.ativo
         });
         return this._base._model.findById(usuarioAtualizado._id, this._projection)
     }

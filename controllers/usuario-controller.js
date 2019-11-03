@@ -14,7 +14,7 @@ function usuarioController() {
 
 }
 
-usuarioController.prototype.post = async(req, res) => {
+usuarioController.prototype.post = async (req, res) => {
 
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.nome, 'Informe seu nome');
@@ -34,7 +34,7 @@ usuarioController.prototype.post = async(req, res) => {
     if (req.body.cpf) {
         let usuarioIsCpfExiste = await _repo.IsCpfExite(req.body.cpf);
         if (usuarioIsCpfExiste) {
-            _validationContract.isTrue((usuarioIsCpfExiste.nome != undefined), `O CPF ${req.body.cpf} já exisate em nosso Banco de Dados.`);
+            _validationContract.isTrue((usuarioIsCpfExiste.nome != undefined), `O CPF ${req.body.cpf} já existe em nosso Banco de Dados.`);
         }
     }
     //Criptografa a senha do usuário
@@ -42,10 +42,11 @@ usuarioController.prototype.post = async(req, res) => {
         req.body.senha = md5(req.body.senha);
     if (req.body.senhaConfirmacao)
         req.body.senhaConfirmacao = md5(req.body.senhaConfirmacao);
+    req.body.se
     ctrlBase.post(_repo, _validationContract, req, res);
 };
 
-usuarioController.prototype.put = async(req, res) => {
+usuarioController.prototype.put = async (req, res) => {
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.nome, 'Informe seu nome');
     _validationContract.isRequired(req.body.email, 'Informe seu e-mail');
@@ -61,19 +62,19 @@ usuarioController.prototype.put = async(req, res) => {
     ctrlBase.put(_repo, _validationContract, req, res);
 };
 
-usuarioController.prototype.get = async(req, res) => {
+usuarioController.prototype.get = async (req, res) => {
     ctrlBase.get(_repo, req, res);
 };
 
-usuarioController.prototype.getById = async(req, res) => {
+usuarioController.prototype.getById = async (req, res) => {
     ctrlBase.getById(_repo, req, res);
 };
 
-usuarioController.prototype.delete = async(req, res) => {
+usuarioController.prototype.delete = async (req, res) => {
     ctrlBase.delete(_repo, req, res);
 };
 
-usuarioController.prototype.autenticar = async(req, res) => {
+usuarioController.prototype.autenticar = async (req, res) => {
     let _validationContract = new validation();
     _validationContract.isRequired(req.body.email, 'Informe um e-mail');
     _validationContract.isEmail(req.body.email, 'O E-mail informado é inválido');
