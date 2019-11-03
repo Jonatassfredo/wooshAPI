@@ -15,8 +15,7 @@ const usuarioModel = new schema({
         required: true
     },
     telefone: {
-        type: String,
-        required: false
+        type: Number
     },
     cpf: {
         type: String,
