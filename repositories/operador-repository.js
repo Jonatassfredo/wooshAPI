@@ -34,7 +34,8 @@ class operadorRepository {
 
     async update(id, data) {
         let operadorAtualizado = await this._base.update(id, {
-            nome: data.nome
+            nome: data.nome,
+            ativo: data.ativo
         });
         return this._base._model.findById(operadorAtualizado._id, this._projection)
     }
