@@ -25,7 +25,7 @@ const pedidoModel = new schema({
         default: 0
     },
     itens: {
-        type: Object,
+        type: String,
         required: true
     },
     dataPedido: {
