@@ -8,14 +8,14 @@ const pedidoModel = new schema({
         type: schema.Types.ObjectId,
         ref: 'Usuario'
     },
-    // enderecoEntregaId: {
-    //     type: Object,
-    //     required: true
-    // },
     enderecoEntregaId: {
-        type: schema.Types.ObjectId,
-        ref: 'EnderecoEntrega'
+        type: Object,
+        required: true
     },
+    // enderecoEntregaId: {
+    //     type: schema.Types.ObjectId,
+    //     ref: 'EnderecoEntrega'
+    // },
     enderecoEntrega: {
         type: String
     },
