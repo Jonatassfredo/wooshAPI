@@ -47,8 +47,8 @@ pedidoController.prototype.delete = async (req, res) => {
 pedidoController.prototype.put = async (req, res) => {
 
     let _validationContract = new validation();
-    _validationContract.isRequired(req.body.valorTotal, 'O valor Total é obrigatório');
-    _validationContract.isRequired(req.body.itens, 'Informe os itens do seu pedido');
+    // _validationContract.isRequired(req.body.valorTotal, 'O valor Total é obrigatório');
+    // _validationContract.isRequired(req.body.itens, 'Informe os itens do seu pedido');
 
     ctrlBase.put(_repo, _validationContract, req, res);
 };
